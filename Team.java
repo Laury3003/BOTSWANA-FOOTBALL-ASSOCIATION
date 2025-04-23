@@ -51,5 +51,18 @@ public class Team extends Sport{
     public void setRank(int rank){
         this.rank = rank;
     }
+    public void calculateRank() {
+        if (teamPlayers == 0 || teamPlayers.isEmpty()) {
+            this.rank = 0;
+            return;
+        }
+
+        double total = 0;
+        for (Player p : teamPlayers) {
+            total += p.getRating();
+        }
+
+        this.rank = (int)(total / teamPlayers.size());
+    }
 
 }

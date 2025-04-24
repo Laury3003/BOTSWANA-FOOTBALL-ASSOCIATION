@@ -1,30 +1,35 @@
-public class Utility implements TeamManagement
+// Utility.java
+// Contains helper methods for structured user input, such as reading integers, doubles,
+// strings, and booleans with prompts.
+
+import java.util.Scanner;
+
+public class Utility 
 {
-    public static void selectionSort(Teams[] teams)
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static int readInt(String prompt)
     {
-        for(int i = 0; i < teams.length -1; i++)
-        {
-            int minIndex = i;
-
-           for(int j = i + 1; j < teams.length; j++)
-            {
-                if(teams[j].ranking < teams[minIndex].ranking)
-                {
-                    minIndex = j;
-                }
-            } 
-
-         Teams temp = teams [minIndex];
-         teams [minIndex] = teams [i];
-         teams [i] = temp;
-
-        }
+        System.out.print(prompt);
+        return scanner.nextInt();
     }
 
-    @Override 
-    public int ratingcalculator(int wins, int gamesPlayed)
+    public static double readDouble(String prompt)
     {
-        return(wins / gamesPlayed) * 100;
+        System.out.print(prompt);
+        return scanner.nextDouble();
     }
 
+    public static String readLine(String prompt)
+    {
+        System.out.print(prompt);
+        scanner.nextLine(); // Clear buffer
+        return scanner.nextLine();
+    }
+
+    public static boolean readBoolean(String prompt) 
+    {
+        System.out.print(prompt + " (true/false): ");
+        return scanner.nextBoolean();
+    }
 }

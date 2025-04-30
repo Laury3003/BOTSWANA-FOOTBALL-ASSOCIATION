@@ -6,7 +6,19 @@ public class Player
     private String position;
     private double rating;
     private int goals;
-    private boolean isFavourite;
+    private boolean isFavourite; 
+
+    /**
+    * Constructor to create a new Player
+    * 
+    * @param playerId    Unique identifier for the player
+    * @param playerName        Player's full name
+    * @param position    Player's field position
+    * @param goals       Number of goals scored by the player
+    * @param rating      Player's performance rating
+    * @param isFavourite Whether this player is marked as a favorite
+    * @param age         Player's age
+    */
 
     public Player(String playerName, int playerID,int age, String position,double rating,int goals,boolean isFavourite )
     {

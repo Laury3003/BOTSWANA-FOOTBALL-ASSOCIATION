@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Team {
    private ArrayList<Player> players;
+   private String name;
   
    public Team(String name) {
       this.name = name;

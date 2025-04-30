@@ -11,8 +11,8 @@ public class Player
     /**
     * Constructor to create a new Player
     * 
-    * @param playerId    Unique identifier for the player
-    * @param playerName        Player's full name
+    * @param playerID    Unique identifier for the player
+    * @param playerName  Player's full name
     * @param position    Player's field position
     * @param goals       Number of goals scored by the player
     * @param rating      Player's performance rating
@@ -89,7 +89,7 @@ public class Player
 
     public void setGoals(int goals)
     {
-        this.goals = goals
+        this.goals = goals;
     }
 
     public boolean getIsFavourite()
@@ -103,7 +103,7 @@ public class Player
     }
     @Override
     public String toString() {
-        return "Player ID: " + playerId + ", Name: " + playerName + ", Position: " + position +
+        return "Player ID: " + playerID + ", Name: " + playerName + ", Position: " + position +
                ", Goals: " + goals + ", Rating: " + rating + ", Favourite: " + isFavourite;
  }
 }

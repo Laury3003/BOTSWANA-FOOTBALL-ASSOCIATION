@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+public class MainApp {
+   public static void main(String[] args) {
+      try {
+      Football bfaSystem = new Football();
+      Scanner scanner = new Scanner(System.in);
+         
+      boolean running = true;
+      while (running) {
+       // Displaying the main menu options
+       System.out.println("\n=== BFA Football Management System ===");
+       System.out.println("1. View Team Rankings");
+       System.out.println("2. Show Best & Favourite Players");
+       System.out.println("3. Manage Teams & Players");
+       System.out.println("4. Exit");
+       System.out.print("Select an option: ");
+            
+            // Read and parse user choice
+            int choice = Integer.parseInt(scanner.nextLine());
+            
+            // Process user selection
+         if (choice == 1) {
+               
+               bfaSystem.displayRankings();
+         } else if (choice == 2) {
+              
+               bfaSystem.showBestAndFavourites();
+         } else if (choice == 3) {
+              
+               bfaSystem.manageTeamsAndPlayers();
+         } else if (choice == 4) {
+              
+               System.out.println("Goodbye!");
+               running = false;
+         } else {
+               // Handling invalid menu selections.
+               System.out.println("Invalid choice. Try again.");
+            }
+
+        }
+         
+      } catch (Exception e) {
+         //exception to handle unexpected errors
+         System.out.println("An unexpected error occurred: " + e.getMessage());
+      } finally {
+         
+         System.out.println("\nProgram execution completed.");
+      }
+   }
+}

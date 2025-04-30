@@ -1,35 +1,26 @@
-// Utility.java
-// Contains helper methods for structured user input, such as reading integers, doubles,
-// strings, and booleans with prompts.
+/**
+ * Utility class providing search methods for football data.
+ */
 
-import java.util.Scanner;
-
-public class Utility 
+public class SearchUtility 
 {
-    private static final Scanner scanner = new Scanner(System.in);
+   /**
+    * Performs a linear search on an array of Player objects to find a player by name.
+    * The search is case-insensitive, so "John" will match "john" or "JOHN".
+    */
+   
+   public static int linearSearchByName(Player[] players, String name)
+   {
+      // Loop through the entire player array
+      for (int i = 0; i < players.length; i++) {
+         // Perform case-insensitive comparison of player names
+         if (players[i].getName().equalsIgnoreCase(name)) {
+            // Return index position when match is found
+            return i;
+         }
+      }
+      // Return -1 to indicate that no matching player was found
+      return -1;
+   }
 
-    public static int readInt(String prompt)
-    {
-        System.out.print(prompt);
-        return scanner.nextInt();
-    }
-
-    public static double readDouble(String prompt)
-    {
-        System.out.print(prompt);
-        return scanner.nextDouble();
-    }
-
-    public static String readLine(String prompt)
-    {
-        System.out.print(prompt);
-        scanner.nextLine(); // Clear buffer
-        return scanner.nextLine();
-    }
-
-    public static boolean readBoolean(String prompt) 
-    {
-        System.out.print(prompt + " (true/false): ");
-        return scanner.nextBoolean();
-    }
 }

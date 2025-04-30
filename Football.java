@@ -1,34 +1,24 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
-/**
+/*
  * Football class that manages football teams and their players.
- * Extends TeamDataHandler to inherit team management functionality.
+ * Extends TeamDataHandler to inherit team management attributes.
  */
-
-public class Football extends TeamDataHandler
-{
-   
+public class Football extends TeamDataHandler {
    private Scanner scanner = new Scanner(System.in);
-
-   /**
-    * Constructor for the Football class.
-    * Initializes the teams ArrayList and creates two default teams with players.
-    */
+   
    public Football() {
       teams = new ArrayList<Team>();
       
-      // Create first default team with two players
       Team t1 = new Team("Gaborone Stars");
       t1.addPlayer(new Player(1, "John", "Midfielder", 4, 8.5, false));
       t1.addPlayer(new Player(2, "Mark", "Defender", 1, 7.2, true));
-      
-      // Create second default team with two players
+     
       Team t2 = new Team("Francistown United");
       t2.addPlayer(new Player(3, "Leo", "Forward", 6, 9.1, true));
       t2.addPlayer(new Player(4, "Peter", "Goalkeeper", 0, 7.9, false));
       
-      // Add both teams to the teams list
+      //we're adding both teams to the list
       teams.add(t1);
       teams.add(t2);
    }
@@ -38,61 +28,54 @@ public class Football extends TeamDataHandler
     * Creates a new Team object with player information provided by the user.
     */
    public void inputTeamData() {
-      // Get team name from user
       System.out.print("Enter name of new team: ");
       String teamName = scanner.nextLine();
       Team team = new Team(teamName);
       
-      // Get number of players for this team
-      System.out.print("Enter number of players for " + teamName + ": ");
+      System.out.print("Enter number of players for "+ teamName + ": ");
       int playerCount = Integer.parseInt(scanner.nextLine());
       
-      // Loop to gather information for each player
+      //getting player info
       for (int i = 0; i < playerCount; i++) {
-         System.out.println("Player " + (i + 1) + ":");
+         System.out.println("Player "+ (i + 1) + ":");
          
          // Get player ID
-         System.out.print("  Player ID: ");
+         System.out.println("Player ID: ");
          int id = Integer.parseInt(scanner.nextLine());
          
          // Get player name
-         System.out.print("  Name: ");
+         System.out.println("Name: ");
          String name = scanner.nextLine();
          
          // Get player position
-         System.out.print("  Position: ");
+         System.out.println("Position: ");
          String position = scanner.nextLine();
          
          // Get number of goals scored by player
-         System.out.print("  Goals: ");
+         System.out.println("Goals: ");
          int goals = Integer.parseInt(scanner.nextLine());
          
          // Get player rating
-         System.out.print("  Rating: ");
+         System.out.println("Rating: ");
          double rating = Double.parseDouble(scanner.nextLine());
          
          // Get favorite status of player
-         System.out.print("  Favourite? (true/false): ");
+         System.out.println("Favourite? (true/false): ");
          boolean isFav = Boolean.parseBoolean(scanner.nextLine());
          
-         // Create player object and add to team
          Player p = new Player(id, name, position, goals, rating, isFav);
          team.addPlayer(p);
       }
       
-      // Add completed team to teams list
+      //adds a completed team to teams list
       teams.add(team);
    }
-
-   /**
-    * Displays team rankings sorted by average player rating in descending order.
-    * Uses bubble sort algorithm to sort teams by their average rating.
-    */
+    //Displays team rankings sorted by average player rating in descending order.
    public void displayRankings() {
       // Sort teams by average rating using bubble sort
       for (int i = 0; i < teams.size() - 1; i++) {
          for (int j = i + 1; j < teams.size(); j++) {
-            // Swap if current team has lower rating than the next team
+            
             if (teams.get(j).getAverageRating() > teams.get(i).getAverageRating()) {
                Team temp = teams.get(i);
                teams.set(i, teams.get(j));
@@ -102,11 +85,11 @@ public class Football extends TeamDataHandler
       }
       
       // Display the teams sorted by ranking
-      System.out.println("\n--- Team Rankings ---");
+      System.out.println("\n--Team Rankings--");
       for (int i = 0; i < teams.size(); i++) {
          Team t = teams.get(i);
          System.out.printf("Team: %-20s | Avg Rating: %.2f\n", t.getName(), t.getAverageRating());
-      }
+        }
    }
 
    /**
@@ -145,8 +128,8 @@ public class Football extends TeamDataHandler
          System.out.println("5. View All Teams");
          System.out.println("6. Exit Management");
          System.out.print("Choose an option: ");
-         int choice = Integer.parseInt(scanner.nextLine());
          
+         int choice = Integer.parseInt(scanner.nextLine());
          // Process user choice
          if (choice == 1) {
             // Option 1: Add a new team with players
@@ -176,7 +159,7 @@ public class Football extends TeamDataHandler
             String teamName = scanner.nextLine();
             Team team = findTeam(teamName);
             if (team != null) {
-               // Collect player information
+               // Collecting the player information
                System.out.print("Enter player ID: ");
                int id = Integer.parseInt(scanner.nextLine());
                System.out.print("Enter name: ");
@@ -224,8 +207,8 @@ public class Football extends TeamDataHandler
                System.out.println("Team not found.");
             }
          } else if (choice == 5) {
-            // Option 5: View information for all teams
-            for (int i = 0; i < teams.size(); i++) {
+            
+            for (int i = 0; i < teams.size(); i++) {// Option 5: View information for all teams
                teams.get(i).displayTeamInfo();
             }
          } else if (choice == 6) {
@@ -238,14 +221,12 @@ public class Football extends TeamDataHandler
       }
    }
    
-   private Team findTeam(String name) {
-      // Search for team with matching name (case-insensitive)
+   private Team findTeam(String name) { //searching for team
       for (int i = 0; i < teams.size(); i++) {
          if (teams.get(i).getName().equalsIgnoreCase(name)) {
             return teams.get(i);
          }
       }
-      // Return null if no matching team is found
       return null;
    }
 }

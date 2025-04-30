@@ -42,12 +42,12 @@ public class Player
         this.playerName = playerName;
     }
 
-     public String getPlayerID() 
+     public int getPlayerID() 
     {
         return playerID;
     }
 
-    public void setPlayerID(String playerID)
+    public void setPlayerID(int playerID)
     {
         this.playerID = playerID;
     }
@@ -72,7 +72,7 @@ public class Player
         this.position = position;
     }
 
-     public String getRating() 
+     public double getRating() 
     {
         return rating;
     }

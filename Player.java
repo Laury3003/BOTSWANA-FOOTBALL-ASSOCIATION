@@ -1,19 +1,22 @@
-public class Player extends Sport
+public class Player
 {
     private String playerName;
     private int playerID;
     private int age;
     private String position;
     private double rating;
+    private int goals;
+    private boolean isFavourite;
 
-    public Player(String playerName, int playerID,int age, String position,double rating, String sportName)
+    public Player(String playerName, int playerID,int age, String position,double rating,int goals,boolean isFavourite )
     {
-        super(sportName);
         this.playerName = playerName;
         this.playerID = playerID;
         this.age = age;
         this.position = position;
         this.rating = rating;
+        this.goals = goals;
+        this.isFavourite = isFavourite; 
     }
 
     //Getters and setters
@@ -66,6 +69,28 @@ public class Player extends Sport
     {
         this.rating = rating;
     }
+    
+    public int getGoals()
+    {
+        return goals;
+    }
 
+    public void setGoals(int goals)
+    {
+        this.goals = goals
+    }
 
+    public boolean getIsFavourite()
+    {
+        return isFavourite;
+    }
+
+    public void setIsFavourite()
+    {
+        this.isFavourite = isFavourite;      
+    }
+    @Override
+    public String toString() {
+        return "Player ID: " + playerId + ", Name: " + playerName + ", Position: " + position +
+               ", Goals: " + goals + ", Rating: " + rating + ", Favourite: " + isFavourite;
 }

@@ -20,7 +20,7 @@ public class Player
     }
 
     //Getters and setters
-    public String getPlayerName() 
+    public String getPlayerName()
     {
         return playerName;
     }
@@ -93,4 +93,5 @@ public class Player
     public String toString() {
         return "Player ID: " + playerId + ", Name: " + playerName + ", Position: " + position +
                ", Goals: " + goals + ", Rating: " + rating + ", Favourite: " + isFavourite;
+ }
 }

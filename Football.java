@@ -1,7 +1,5 @@
-// Football.java
-// Concrete class that extends TeamDataHandler to provide implementation of all
-// required methods: data input, ranking display, and best/favourite player output.
-
+//comments hereeeeeeee
+    
 import java.util.Arrays;
 
 public class Football extends TeamDataHandler {
